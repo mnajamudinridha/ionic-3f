@@ -17,4 +17,8 @@ export class TutorialService {
   getTutorial():Observable<ApiTutorial>{
     return this.http.get<ApiTutorial>('http://localhost/kelas3f.com/index.php');
   }
+
+  getTutorialDetail(id: string | null){
+    return this.http.get<ApiTutorial>(`http://localhost/kelas3f.com/index.php?id=${id}`);
+  }
 }
