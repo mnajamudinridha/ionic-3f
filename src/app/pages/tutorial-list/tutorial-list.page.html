@@ -1,13 +1,18 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
     <ion-title>List Tutorial</ion-title>
+    <ion-buttons slot="end">
+      <ion-button shape="round" size="large" routerLink="/tutorial-add" routerDirection="forward">
+        <ion-icon name="add-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar color="primary">
-      <ion-title size="large">List Tutorial</ion-title>
+      <ion-title size="large">List Tutorial </ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-list>
