@@ -25,7 +25,7 @@ export class TutorialListPage implements OnInit {
       spinner:'crescent'
     });
     await loading.present();
-    
+
     this.tutorialService.getTutorial().subscribe((res) => {
       this.tutorials.push(...res.Hasil);
       console.log(this.tutorials);
