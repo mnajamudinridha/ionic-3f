@@ -53,7 +53,7 @@
 			}
 		}
 	}elseif($method == 'POST'){
-		if(isset($_POST['aksi']) && $_POST['aksi'] == "tambah"){
+		if(isset($_GET['aksi']) && $_GET['aksi'] == "tambah"){
 			//koding tambah
 			$inputJSON = file_get_contents('php://input');
 			$input = json_decode($inputJSON, true);
@@ -62,7 +62,7 @@
 			$sql = "INSERT INTO tutorial (title, description, tanggal) VALUES ('$title', '$description',NOW())";
 			$conn->query($sql);
 
-			$query = mysqli_query($conn, 'SELECT * FROM tutorial DESC LIMIT 1');
+			$query = mysqli_query($conn, 'SELECT * FROM tutorial ORDER BY id DESC LIMIT 1');
 			if (mysqli_num_rows($query) > 0) {
 				while($row = mysqli_fetch_assoc($query)) {
 					$results['Status']['success'] = true;
@@ -78,9 +78,9 @@
 				$json = json_encode($results);
 				print_r($json);
 			}
-		}elseif(isset($_POST['aksi']) && $_POST['aksi'] == "edit"){
+		}elseif(isset($_GET['aksi']) && $_GET['aksi'] == "edit"){
 			//koding edit
-		}elseif(isset($_POST['aksi']) && $_POST['aksi'] == "delete"){
+		}elseif(isset($_GET['aksi']) && $_GET['aksi'] == "delete"){
 			//koding delete
 		}else{
 			$results['Status']['code'] = 404;

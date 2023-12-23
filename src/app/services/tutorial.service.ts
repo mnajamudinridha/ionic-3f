@@ -21,4 +21,9 @@ export class TutorialService {
   getTutorialDetail(id: string | null){
     return this.http.get<ApiTutorial>(`http://localhost/kelas3f.com/index.php?id=${id}`);
   }
+
+  tambahTutorial(data:{title:string, description:string}):Observable<{title:string, description:string}>{
+    console.log(data);
+    return this.http.post<{title:string,description:string}>(`http://localhost/kelas3f.com/index.php?aksi=tambah`, data);
+  }
 }
