@@ -16,6 +16,10 @@ export class TutorialListPage implements OnInit {
               private loadingController : LoadingController) { }
 
   ngOnInit() {
+    // this.loadingData();
+  }
+
+  ionViewWillEnter(){
     this.loadingData();
   }
 
@@ -27,7 +31,8 @@ export class TutorialListPage implements OnInit {
     await loading.present();
 
     this.tutorialService.getTutorial().subscribe((res) => {
-      this.tutorials.push(...res.Hasil);
+      this.tutorials = [...res.Hasil];
+      // this.tutorials.push(...res.Hasil);
       console.log(this.tutorials);
       loading.dismiss();
     });
