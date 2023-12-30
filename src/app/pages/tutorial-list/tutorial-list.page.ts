@@ -23,6 +23,17 @@ export class TutorialListPage implements OnInit {
     this.loadingData();
   }
 
+  async deleteData(id:string){
+    this.tutorialService.deleteTutorial(id).subscribe({
+      next: (val:any) => {
+        this.loadingData();
+      },
+      error:(err) => {
+        console.log("ada error di : ",err);
+      }
+    });
+  }
+
   async loadingData(){
     const loading = await this.loadingController.create({
       message:'Loading ...',
