@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'tutorial-add',
     loadChildren: () => import('./pages/tutorial-add/tutorial-add.module').then( m => m.TutorialAddPageModule)
   },
+  {
+    path: 'tutorial-edit/:id',
+    loadChildren: () => import('./pages/tutorial-edit/tutorial-edit.module').then( m => m.TutorialEditPageModule)
+  },
 ];
 
 @NgModule({

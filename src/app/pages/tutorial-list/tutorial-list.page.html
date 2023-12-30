@@ -27,7 +27,7 @@
         <ion-badge slot="end">{{ item.id }}</ion-badge>
       </ion-item>
       <ion-item-options side="end">
-        <ion-item-option>Edit</ion-item-option>
+        <ion-item-option button routerLink="/tutorial-edit/{{item.id}}">Edit</ion-item-option>
         <ion-item-option color="danger" (click)="deleteData(item.id)">Hapus</ion-item-option>
       </ion-item-options>
   </ion-item-sliding>
