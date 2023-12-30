@@ -82,6 +82,10 @@
 			//koding edit
 		}elseif(isset($_GET['aksi']) && $_GET['aksi'] == "delete"){
 			//koding delete
+			$inputJSON = file_get_contents('php://input');
+			$id = json_decode($inputJSON, true);
+			$sql = "DELETE FROM tutorial WHERE id='$id'";
+			$conn->query($sql);
 		}else{
 			$results['Status']['code'] = 404;
 		}
